@@ -1,0 +1,131 @@
+{
+    "nome_cliente": "Cliente Exemplo",
+    "previsao_entrega": "01/01/2025",
+    "orcamento_valido_ate": "01/02/2025",
+    "formas_pagamento": "Cartão, Boleto",
+    "nome_vendedor": "Vendedor Exemplo",
+    "nome_arquivo": "orcamento_exemplo",
+    "produtos": [
+        {
+            "nome_item": "Item 1",
+            "ambiente": "Sala",
+            "largura": "100",
+            "altura": "200",
+            "cor": "Branco",
+            "quantidade": "2",
+            "descricao": "Descrição do item 1",
+            "componentes": "Componente A, Componente B",
+            "valor_total": "500"
+        },
+        {
+            "nome_item": "Item 2",
+            "ambiente": "Cozinha",
+            "largura": "150",
+            "altura": "250",
+            "cor": "Preto",
+            "quantidade": "1",
+            "descricao": "Descrição do item 2",
+            "componentes": "Componente C, Componente D",
+            "valor_total": "300"
+        },
+        {
+            "nome_item": "Item 2",
+            "ambiente": "Cozinha",
+            "largura": "150",
+            "altura": "250",
+            "cor": "Preto",
+            "quantidade": "1",
+            "descricao": "Descrição do item 2",
+            "componentes": "Componente C, Componente D",
+            "valor_total": "300"
+        },
+        {
+            "nome_item": "Item 2",
+            "ambiente": "Cozinha",
+            "largura": "150",
+            "altura": "250",
+            "cor": "Preto",
+            "quantidade": "1",
+            "descricao": "Descrição do item 2",
+            "componentes": "Componente C, Componente D",
+            "valor_total": "300"
+        },
+        {
+            "nome_item": "Item 2",
+            "ambiente": "Cozinha",
+            "largura": "150",
+            "altura": "250",
+            "cor": "Preto",
+            "quantidade": "1",
+            "descricao": "Descrição do item 2",
+            "componentes": "Componente C, Componente D",
+            "valor_total": "300"
+        },
+        {
+            "nome_item": "Item 2",
+            "ambiente": "Cozinha",
+            "largura": "150",
+            "altura": "250",
+            "cor": "Preto",
+            "quantidade": "1",
+            "descricao": "Descrição do item 2",
+            "componentes": "Componente C, Componente D",
+            "valor_total": "300"
+        },
+        {
+            "nome_item": "Item 2",
+            "ambiente": "Cozinha",
+            "largura": "150",
+            "altura": "250",
+            "cor": "Preto",
+            "quantidade": "1",
+            "descricao": "Descrição do item 2",
+            "componentes": "Componente C, Componente D",
+            "valor_total": "300"
+        },
+        {
+            "nome_item": "Item 2",
+            "ambiente": "Cozinha",
+            "largura": "150",
+            "altura": "250",
+            "cor": "Preto",
+            "quantidade": "1",
+            "descricao": "Descrição do item 2",
+            "componentes": "Componente C, Componente D",
+            "valor_total": "300"
+        },
+        {
+            "nome_item": "Item 2",
+            "ambiente": "Cozinha",
+            "largura": "150",
+            "altura": "250",
+            "cor": "Preto",
+            "quantidade": "1",
+            "descricao": "Descrição do item 2",
+            "componentes": "Componente C, Componente D",
+            "valor_total": "300"
+        },
+        {
+            "nome_item": "Item 2",
+            "ambiente": "Cozinha",
+            "largura": "150",
+            "altura": "250",
+            "cor": "Preto",
+            "quantidade": "1",
+            "descricao": "Descrição do item 2",
+            "componentes": "Componente C, Componente D",
+            "valor_total": "300"
+        },
+        {
+            "nome_item": "Item 2",
+            "ambiente": "Cozinha",
+            "largura": "150",
+            "altura": "250",
+            "cor": "Preto",
+            "quantidade": "1",
+            "descricao": "Descrição do item 2",
+            "componentes": "Componente C, Componente D",
+            "valor_total": "300"
+        }
+    ]
+}

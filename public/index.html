@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 96vh;
+            background-color: rgb(59, 59, 59);
+        }
+        .container {
+            margin-top: 95vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgb(128, 128, 128);
+            padding: 2em;
+            width: fit-content;
+            height: fit-content;
+            border-radius: 10px;
+        }
+        .input-container, .product-container {
+            margin-bottom: 1em;
+            display: flex;
+            flex-direction: column;
+        }
+        .input-container p, .product-container p {
+            margin-bottom: 0.5em;
+        }
+        .product-container {
+            border: 1px solid #000;
+            padding: 1em;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Orçamento</h1>
+        <div class="input-container">
+            <p>Nome do Cliente</p>
+            <input type="text" id="nome_cliente">
+        </div>
+        <div class="input-container">
+            <p>Previsão de Entrega</p>
+            <input type="text" id="previsao_entrega">
+        </div>
+        <div class="input-container">
+            <p>Orçamento Válido Até</p>
+            <input type="text" id="orcamento_valido_ate">
+        </div>
+        <div class="input-container">
+            <p>Formas de Pagamento</p>
+            <input type="text" id="formas_pagamento">
+        </div>
+        <div class="input-container">
+            <p>Nome do Vendedor</p>
+            <input type="text" id="nome_vendedor">
+        </div>
+        <div class="input-container">
+            <p>Nome Do Arquivo</p>
+            <input type="text" id="nome_arquivo">
+        </div>
+        <div id="produtos-container">
+            <h2>Produtos</h2>
+        </div>
+        <button id="add-product">Adicionar Produto</button>
+        <button id="submit">Gerar PDF</button>
+    </div>
+    
+    <script>
+    document.getElementById('add-product').addEventListener('click', function() {
+        const container = document.createElement('div');
+        container.className = 'product-container';
+
+        const fields = [
+            { label: 'Nome do Item', id: 'nome_item' },
+            { label: 'Ambiente', id: 'ambiente' },
+            { label: 'Largura', id: 'largura' },
+            { label: 'Altura', id: 'altura' },
+            { label: 'Cor', id: 'cor' },
+            { label: 'Quantidade', id: 'quantidade' },
+            { label: 'Descrição', id: 'descricao' },
+            { label: 'Componentes', id: 'componentes' },
+            { label: 'Valor Total', id: 'valor_total' }
+        ];
+
+        fields.forEach(field => {
+            const inputContainer = document.createElement('div');
+            inputContainer.className = 'input-container';
+
+            const label = document.createElement('p');
+            label.textContent = field.label;
+
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.id = field.id;
+            input.name = field.id;
+
+            inputContainer.appendChild(label);
+            inputContainer.appendChild(input);
+            container.appendChild(inputContainer);
+        });
+
+        document.getElementById('produtos-container').appendChild(container);
+    });
+
+    document.getElementById('submit').addEventListener('click', function() {
+        const nome_cliente = document.getElementById('nome_cliente').value;
+        const previsao_entrega = document.getElementById('previsao_entrega').value;
+        const orcamento_valido_ate = document.getElementById('orcamento_valido_ate').value;
+        const formas_pagamento = document.getElementById('formas_pagamento').value;
+        const nome_vendedor = document.getElementById('nome_vendedor').value;
+        const nome_arquivo = document.getElementById('nome_arquivo').value;
+
+        const produtos = [];
+        document.querySelectorAll('.product-container').forEach(container => {
+            const produto = {
+                nome_item: container.querySelector('input[name="nome_item"]').value,
+                ambiente: container.querySelector('input[name="ambiente"]').value,
+                largura: container.querySelector('input[name="largura"]').value,
+                altura: container.querySelector('input[name="altura"]').value,
+                cor: container.querySelector('input[name="cor"]').value,
+                quantidade: container.querySelector('input[name="quantidade"]').value,
+                descricao: container.querySelector('input[name="descricao"]').value,
+                componentes: container.querySelector('input[name="componentes"]').value,
+                valor_total: container.querySelector('input[name="valor_total"]').value
+            };
+            produtos.push(produto);
+        });
+
+        const inputData = {
+            nome_cliente: nome_cliente,
+            previsao_entrega: previsao_entrega,
+            orcamento_valido_ate: orcamento_valido_ate,
+            formas_pagamento: formas_pagamento,
+            nome_vendedor: nome_vendedor,
+            nome_arquivo: nome_arquivo,
+            produtos: produtos
+        };
+
+        fetch('/save', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(inputData),
+        })
+        .then(response => response.text())
+        .then(data => {
+            console.log(data);
+            // Reload the page
+            location.reload();
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+    </script>
+    
+</body>
+</html>
